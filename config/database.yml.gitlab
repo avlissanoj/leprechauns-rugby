@@ -1,0 +1,11 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  username: postgres
+
+test:
+  <<: *default
+  database: leprechauns_rugby_test
+  host: postgres
+  pool: 5

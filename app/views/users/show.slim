@@ -1,0 +1,118 @@
+- if @user.need_review?
+  .alert.alert-danger Faz um tempo que você não atualiza seus dados, o que acha de dar uma revisada neles?
+
+h2
+  - if @user.need_review?
+    = link_to "Revisar", edit_user_url(@user), class: "btn btn-danger pull-right"
+  - else
+    = link_to "Editar", edit_user_url(@user), class: "btn btn-success pull-right"
+  = @user.full_name
+
+
+dl.dl-horizontal
+  - if @user.nickname.present?
+    dt Apelido
+    dd= @user.nickname
+
+  dt Sexo
+  dd= @user.sex.text
+  
+  dt RG
+  dd= @user.rg
+
+  dt CPF
+  dd= @user.cpf
+
+  dt Data de aniversário
+  dd= l @user.birth
+
+  h3 Dados para contato
+
+  dt Endereço
+  dd= [@user.address, @user.number, @user.complement].select(&:present?).join(", ")
+
+  dt Bairro
+  dd= @user.neighborhood
+
+  dt Cidade
+  dd= "#{@user.city}/#{@user.state}"
+
+  dt CEP
+  dd= @user.zip_code
+
+  dt E-mail
+  dd= @user.email
+
+  - if @user.secondary_email.present?
+    dt E-mail secundário
+    dd= @user.secondary_email
+
+  dt Celular
+  dd= @user.phone
+
+  - if @user.home_phone.present?
+    dt Telefone
+    dd= @user.home_phone
+
+  - if @user.another_phone.present?
+    dt Outro telefone
+    dd= @user.another_phone
+
+  - if @user.facebook_link.present?
+    dt Link para o facebook
+    dd= @user.facebook_link
+
+  - if @user.another_phone.present?
+    dt Whatsapp
+    dd= @user.another_phone
+
+  h3 Dados de atleta
+
+  dt Histórico de lesões
+  dd= @user.injuries_history
+
+  dt Doenças crônicas
+  dd= @user.chronic_diseases
+
+  dt Restrição à medicamentos
+  dd= @user.drug_restrictions
+
+  dt Treinos
+  dd= @user.training_availability.map(&:text).join(',')
+
+  dt Mensalidade
+  dd= @user.donation_availability.text
+
+  - if @user.has_health_insurance
+    h3 Dados de plano de saúde
+
+    .row
+      - @user.health_insurances.each do |health_insurance|
+        .col-md-6
+          h4= health_insurance.company
+
+          dt Plano
+          dd= health_insurance.plan
+
+          dt Número do cartão
+          dd= health_insurance.card_number
+
+          dt Validade do cartão
+          dd= l health_insurance.validity
+
+          - if health_insurance.preferably_hospital.present?
+            dt Hospital
+            dd= health_insurance.preferably_hospital
+
+  h3 Dados para emergência
+
+  .row
+    - @user.emergency_contacts.each do |emergency_contact|
+      .col-md-6
+        h4= emergency_contact.full_name
+
+        dt Grau de parentesco
+        dd= emergency_contact.kinship_degree
+
+        dt Telefone
+        dd= emergency_contact.home_phone

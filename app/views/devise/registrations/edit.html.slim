@@ -1,0 +1,26 @@
+h2 Editar Credenciais de Acesso
+
+= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
+  = f.error_notification
+
+  .row
+    .col-md-4
+      .form-inputs
+        = f.input :email, required: true, autofocus: true
+
+        - if devise_mapping.confirmable? && resource.pending_reconfirmation?
+          p Currently waiting confirmation for: #{resource.unconfirmed_email}
+
+        = f.input :password, autocomplete: "off", hint: "Deixe em branco caso não queira alterá-la", required: false
+        = f.input :password_confirmation, required: false
+        = f.input :current_password, label: "Senha atual", hint: "Precisamos da sua senha para confirmar suas alterações", required: true
+
+      .form-actions
+        = f.button :submit, "Atualizar"
+        = link_to "Voltar", :back, class: "btn btn-link"
+
+/h3 Cancel my account
+
+/p Unhappy? = link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete
+
+/= link_to "Back", :back

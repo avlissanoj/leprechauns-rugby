@@ -1,0 +1,142 @@
+= simple_form_for user do |form|
+  h1.text-center Cadastro de Atleta
+
+  .row
+    .col-md-6
+      = form.input :full_name, input_html: { maxlength: 80 }
+    .col-md-3
+      = form.input :nickname, input_html: { maxlength: 30 }
+    .col-md-3
+      = form.input :sex, include_blank: false
+
+  .row
+    .col-md-4
+      = form.input :rg, input_html: { class: "rg-mask" }
+    .col-md-4
+      = form.input :cpf,  input_html: { class: "cpf-mask" }
+    .col-md-4
+      = form.input :birth, as: :date, start_year: Date.today.year - 70, end_year: Date.today.year - 12, selected: 20.years.ago
+
+  .row
+    .col-md-6
+      = form.input :address, input_html: { maxlength: 100 }
+    .col-md-2
+      = form.input :number, input_html: { maxlength: 8 }
+    .col-md-4
+      = form.input :complement, input_html: { maxlength: 20 }
+
+  .row
+    .col-md-4
+      = form.input :neighborhood, input_html: { maxlength: 40 }
+    .col-md-4
+      = form.input :city, input_html: { maxlength: 40 }
+    .col-md-1
+      = form.input :state, input_html: { maxlength: 2, value: "SP" }
+    .col-md-3
+      = form.input :zip_code, input_html: { class: "cep-mask" }
+
+  h2 Dados para contato
+
+  .row
+    .col-md-4
+      = form.input :phone, input_html: { class: "celphone-mask" }
+    .col-md-4
+      = form.input :home_phone, input_html: { class: "phone-mask" }
+    .col-md-4
+      = form.input :another_phone, input_html: { class: "celphone-mask" }
+
+  .row
+    .col-md-6
+      = form.input :secondary_email, input_html: { maxlength: 70 }
+
+  .row
+    .col-md-4
+      = form.input :facebook_link, input_html: { maxlength: 30 }
+    .col-md-4
+      = form.input :whatsapp, input_html: { class: "celphone-mask" }
+
+  h2 Dados de atleta
+
+  .row
+    .col-md-12
+      = form.input :injuries_history, as: :text
+
+  .row
+    .col-md-12
+      = form.input :drug_restrictions, as: :text
+
+  .row
+    .col-md-12
+      = form.input :chronic_diseases, as: :text
+
+  .row
+    .col-md-3
+      = form.input :training_availability, as: :check_boxes
+    .col-md-3
+      = form.input :donation_availability, include_blank: false
+
+  h2 Dados de plano de saúde
+
+  = form.input :has_health_insurance, input_html: { id: "js-has-health-insurance" }
+
+  = form.simple_fields_for :health_insurances do |inner_form|
+    .row
+      .col-md-6
+        = inner_form.input :company, disabled: !form.object.has_health_insurance?, input_html: { class: "js-toggle-health-insurance-form", maxlength: 30 }
+      .col-md-6
+        = inner_form.input :plan, disabled: !form.object.has_health_insurance?, input_html: { class: "js-toggle-health-insurance-form", maxlength: 20 }
+
+    .row
+      .col-md-4
+        = inner_form.input :card_number, disabled: !form.object.has_health_insurance?, input_html: { class: "js-toggle-health-insurance-form", maxlength: 30 }
+      .col-md-4
+        = inner_form.input :validity, disabled: !form.object.has_health_insurance?, input_html: { class: "js-toggle-health-insurance-form" }, start_year: Date.today.year, end_year: Date.today.year + 20
+
+    .row
+      .col-md-6
+        = inner_form.input :preferably_hospital, disabled: !form.object.has_health_insurance?, input_html: { class: "js-toggle-health-insurance-form", maxlength: 40 }
+
+  h2 Dados para emergência
+
+  = form.simple_fields_for :emergency_contacts do |inner_form|
+    .row
+      .col-md-8
+        = inner_form.input :full_name, maxlength: 70
+      .col-md-4
+        = inner_form.input :kinship_degree, maxlength: 20
+
+    .row
+      .col-md-4
+        = inner_form.input :home_phone, input_html: { class: "phone-mask" }
+      .col-md-4
+        = inner_form.input :phone, input_html: { class: "celphone-mask" }
+
+  .row
+    .col-md-12
+      = form.input :agree_with_terms_of_statute, label: "Você está de acordo com os termos presentes no #{link_to 'Estatuto', 'http', target: '_blank'}".html_safe
+      = form.input :agree_with_terms_of_athlete_manual, label: "Você está de acordo com os termos presentes no #{link_to 'Manual do Atleta', 'http', target: '_blank'}".html_safe
+
+  .actions.pull-right.clearfix
+    = form.submit "Salvar", class: "btn btn-success"
+
+javascript:
+  $(function () {
+    $('.cpf-mask').mask("000.000.000-00");
+    $('.cpf-mask').attr('placeholder', '000.000.000-00');
+    $('.cep-mask').mask('00000-000');
+    $('.cep-mask').attr('placeholder', '00000-000');
+    $('.celphone-mask').mask('(00) 90000-0000');
+    $('.celphone-mask').attr('placeholder', '(00) 00000-0000');
+    $('.phone-mask').mask('(00) 0000-0000');
+    $('.phone-mask').attr('placeholder', '(00) 0000-0000');
+    $('.rg-mask').mask('00.000.000-*', {
+      translation: {
+        '*': { pattern: /\w/ }
+      }
+    });
+    $('.rg-mask').attr('placeholder', '00.000.000-0');
+
+    $(document).on("change", "#js-has-health-insurance", function() {
+      $(".js-toggle-health-insurance-form").prop("disabled", !this.checked);
+    });
+  });

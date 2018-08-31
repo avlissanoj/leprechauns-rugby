@@ -1,0 +1,54 @@
+- #if user_signed_in?
+.row
+  .col-md-3
+    .panel.panel-default
+      .panel-body
+        .img-container
+          = image_tag "chart.png", alt: "Mensalidades", class: "img-responsive"
+
+        - if !user_signed_in?
+          p.home-links
+            = link_to "Entre para saber", new_user_session_path
+          p.home-links
+            = link_to "sua situação financeira", new_user_session_path
+
+        - elsif current_user.pendencies.unsettled.any?
+          p.home-links Você possui inadimplências
+          p.home-links com o financeiro do time
+
+        - else
+          p.home-links Você está em dia
+          p.home-links com o financeiro do time
+
+  .col-md-3
+    .panel.panel-default
+      .panel-body
+        .img-container
+          = image_tag "logo_lepre.png", alt: "Clube", class: "img-responsive"
+
+        p.home-links
+          = link_to "Estatuto", "/estatuto.pdf", download: "estatuto.pdf"
+        p.home-links
+          = link_to "Manual do Atleta", "/manual_do_atleta.pdf", download: "manual_do_atleta.pdf"
+
+  .col-md-3
+    .panel.panel-default
+      .panel-body
+        .img-container
+          = image_tag "world_rugby.png", alt: "Laws & Ready Rugby", class: "img-responsive"
+
+        p.home-links
+          = link_to "Laws", "http://laws.worldrugby.org/?language=PTBR", target: "_blank"
+        p.home-links
+          = link_to "Ready", "http://rugbyready.worldrugby.org/?language=PTBR", target: "_blank"
+
+  .col-md-3
+    .panel.panel-default
+      .panel-body
+        .img-container
+          = image_tag "rugby_ball.png", alt: "Bola", class: "img-responsive"
+
+        p.home-links
+          = link_to "Avisos", "#"
+        p.home-links
+          = link_to "Em construção", "#"

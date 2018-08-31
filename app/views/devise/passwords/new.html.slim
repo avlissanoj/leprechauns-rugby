@@ -1,0 +1,14 @@
+h2 Esqueceu sua senha?
+
+= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f|
+  = f.error_notification
+
+  .row
+    .col-md-4
+      .form-inputs
+        = f.input :email, required: true, autofocus: true
+
+      .form-actions
+        = f.button :submit, "Me envie instruções para resetar a senha"
+
+= render "devise/shared/links"

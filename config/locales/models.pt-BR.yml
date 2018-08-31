@@ -1,0 +1,79 @@
+pt-BR:
+  activerecord:
+    models:
+      pendency:
+        one: 'Inadimplência'
+        other: 'Inadimplências'
+      user:
+        one: 'Atleta'
+        other: 'Atletas'
+      admin_user:
+        one: 'Administrador'
+        other: 'Administradores'
+      comment:
+        one: 'Comentário'
+        other: 'Comentários'
+      emergency_contact:
+        one: 'Contato para emergência'
+        other: 'Contatos para emergência'
+      health_insurance:
+        one: 'Plano de saúde'
+        other: 'Planos de saúde'
+    attributes:
+      user:
+        full_name: 'Nome completo'
+        nickname: 'Apelido'
+        sex: 'Sexo'
+        password: 'Senha'
+        password_confirmation: 'Confirmação de senha'
+        remember_me: 'Lembrar senha'
+        rg: 'RG'
+        cpf: 'CPF'
+        birth: 'Data de aniversário'
+        zip_code: 'CEP'
+        state: 'Estado'
+        city: 'Cidade'
+        neighborhood: 'Bairro'
+        address: 'Endereço'
+        number: 'Número'
+        complement: 'Complemento'
+        email: 'E-mail'
+        secondary_email: 'E-mail secundário'
+        phone: 'Celular'
+        home_phone: 'Telefone (casa)'
+        another_phone: 'Outro telefone'
+        facebook_link: 'Link para facebook'
+        whatsapp: 'Número para WhatsApp (caso diferente)'
+        injuries_history: 'Histórico de lesões'
+        drug_restrictions: 'Restrições a medicamentos'
+        chronic_diseases: 'Doenças crônicas'
+        training_availability: 'Disponibilidade para treinar'
+        donation_availability: 'Disponibilidade para mensalidade'
+        has_health_insurance: 'Possui plano de saúde'
+        created_at: 'Criado em'
+        updated_at: 'Atualizado em'
+        last_sign_in_at: 'Entrou pela ultima vez'
+        confirmed_at: 'Confirmado em'
+        sign_in_count: 'Quantas vezes entrou'
+        aasm_state: 'Estado do cadastro'
+        aasm_state/need_review: 'Desatualizado'
+        aasm_state/updated: 'Atualizado'
+      emergency_contact:
+        full_name: 'Nome completo'
+        kinship_degree: 'Grau de parentesco'
+        home_phone: 'Telefone'
+        phone: 'Celular'
+      health_insurance:
+        company: 'Empresa'
+        plan: 'Plano'
+        card_number: 'Número do cartão'
+        validity: 'Validade'
+        preferably_hospital: 'Hospital de preferência'
+      pendency:
+        date: 'Data'
+        settled: 'Pago'
+        user: 'Usuário'
+  abbreviations:
+    sex:
+      male: "M"
+      female: "F"

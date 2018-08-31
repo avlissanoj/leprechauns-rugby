@@ -1,0 +1,16 @@
+pt-BR:
+  enumerize:
+    user:
+      sex:
+        female: "Feminino"
+        male: "Masculino"
+      training_availability:
+        tuesday_afternoon: "Terça-feira (16:00 - 18:00)"
+        tuesday_night: "Terça-feira (23:00 - 00:30)"
+        thursday_afternoon: "Quinta-feira (16:00 - 18:00)"
+        saturday_morning: "Sábado (10:00 - 12:00)"
+      donation_availability:
+        normal: "R$30,00"
+        half: "R$15,00"
+        minimum: "R$10,00"
+        plus: "+R$30,00"

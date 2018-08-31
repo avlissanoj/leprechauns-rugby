@@ -1,0 +1,33 @@
+@import 'bootstrap';
+@import 'margin_padding_helper_mixin';
+
+* {
+  font-family: 'Work Sans', sans-serif;
+}
+
+.navbar {
+  border-radius: 0px;
+}
+
+.img-container {
+  height: 30vh;
+  position: relative;
+  img {
+    padding: 15%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%)
+  }
+}
+
+.home-links{
+  margin:15px 0px 0px 0px;
+  text-align: center;
+  font-size: 20px;
+  a {
+    text-decoration: none;
+    color: black;
+  }
+}

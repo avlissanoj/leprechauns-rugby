@@ -5,6 +5,7 @@ html
     = csrf_meta_tags
     meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"
     link href="https://fonts.googleapis.com/css?family=Work+Sans" rel="stylesheet"
+    link rel="shortcut icon" href="#{image_url 'favicon.ico'}" type="image/x-icon"
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   body
@@ -12,7 +13,6 @@ html
       .container
         .navbar-header
           = link_to "Leprechauns UFABC Rugby", home_pages_path, class: "navbar-brand"
-
         ul.nav.navbar-nav.navbar-right
           - if user_signed_in?
             li= link_to "Sair", destroy_user_session_path, method: :delete

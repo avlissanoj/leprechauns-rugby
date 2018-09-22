@@ -9,8 +9,8 @@ class UsersController < BaseController
   end
 
   def update
-    user.assign_attributes(user_params)
-    user.last_update_at = Time.now
+    @user.assign_attributes(user_params)
+    @user.last_update_at = Time.now
 
     respond_to do |format|
       if @user.save

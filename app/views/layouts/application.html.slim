@@ -9,24 +9,30 @@ html
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   body
-    .navbar.navbar-inverse
+    nav.navbar.navbar-inverse
       .container
         .navbar-header
+          button.navbar-toggle.collapsed aria-controls="navbar" aria-expanded="false" data-target="#navbar" data-toggle="collapse" type="button" 
+            span.sr-only Toggle navigation
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
           = link_to "Leprechauns UFABC Rugby", home_pages_path, class: "navbar-brand"
-        ul.nav.navbar-nav.navbar-right
-          - if user_signed_in?
-            li= link_to "Sair", destroy_user_session_path, method: :delete
-            li= link_to "Menu principal", home_pages_path
-            - if current_user.rg.blank?
-              = link_to "Preencher cadastro", edit_user_path(current_user), class: "btn btn-success navbar-btn mr-15"
-            - elsif current_user.need_review?
-              = link_to "Atualizar cadastro", edit_user_path(current_user), class: "btn btn-success navbar-btn mr-15"
+        #navbar.navbar-collapse.collapse
+          ul.nav.navbar-nav.navbar-right
+            - if user_signed_in?
+              li= link_to "Sair", destroy_user_session_path, method: :delete
+              li= link_to "Menu principal", home_pages_path
+              - if current_user.rg.blank?
+                = link_to "Preencher cadastro", edit_user_path(current_user), class: "btn btn-success navbar-btn mr-15"
+              - elsif current_user.need_review?
+                = link_to "Atualizar cadastro", edit_user_path(current_user), class: "btn btn-success navbar-btn mr-15"
+              - else
+                li= link_to "Meus dados", current_user
+              li= link_to "Configurações", edit_user_registration_path
             - else
-              li= link_to "Meus dados", current_user
-            li= link_to "Configurações", edit_user_registration_path
-          - else
-            li= link_to "Entrar", new_user_session_path
-            = link_to "Cadastrar-se", new_user_registration_path, class: "btn btn-success navbar-btn mr-15"
+              li= link_to "Entrar", new_user_session_path
+              button.btn.btn-success.navbar-btn.ml-15.mr-15= link_to "Cadastrar-se", new_user_registration_path
 
     .container
       == yield

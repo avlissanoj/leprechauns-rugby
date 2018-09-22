@@ -56,6 +56,8 @@ class User < ApplicationRecord
 
   validates_presence_of :health_insurances, if: :has_health_insurance?, on: :update
 
+  validates_uniqueness_of :nickname
+
   aasm do
     state :need_review, initial: true
     state :updated

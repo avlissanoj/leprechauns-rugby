@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180629011704) do
+ActiveRecord::Schema.define(version: 20180829193620) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -69,7 +69,7 @@ ActiveRecord::Schema.define(version: 20180629011704) do
 
   create_table "pendencies", force: :cascade do |t|
     t.bigint "user_id"
-    t.boolean "settled", default: false
+    t.boolean "settled"
     t.date "date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -121,6 +121,8 @@ ActiveRecord::Schema.define(version: 20180629011704) do
     t.boolean "agree_with_terms_of_statute", default: false
     t.boolean "agree_with_terms_of_athlete_manual", default: false
     t.string "sex"
+    t.datetime "last_update_at"
+    t.datetime "last_age_registration_email_send_at"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true

@@ -1,4 +1,3 @@
-- #if user_signed_in?
 .row
   .col-md-3
     .panel.panel-default
@@ -18,7 +17,7 @@
 
         - else
           p.home-links Você está em dia
-          p.home-links com o financeiro do time
+          p.home-links com o financeiro
 
   .col-md-3
     .panel.panel-default
@@ -27,9 +26,9 @@
           = image_tag "logo_lepre.png", alt: "Clube", class: "img-responsive"
 
         p.home-links
-          = link_to "Estatuto", "/estatuto.pdf", download: "estatuto.pdf"
+          = link_to "Estatuto", "/estatuto.pdf", download: "estatuto.pdf", target: "_blank"
         p.home-links
-          = link_to "Manual do Atleta", "/manual_do_atleta.pdf", download: "manual_do_atleta.pdf"
+          = link_to "Manual do Atleta", "/manual_do_atleta.pdf", download: "manual_do_atleta.pdf", target: "_blank"
 
   .col-md-3
     .panel.panel-default

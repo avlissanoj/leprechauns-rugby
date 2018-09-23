@@ -2,7 +2,7 @@ ActiveAdmin.register User do
   includes :emergency_contacts, :health_insurances
   actions :all, except: :destroy
 
-  permit_params :email, :password
+  permit_params :email, :password, :nickname
 
   index do
     column :full_name
@@ -21,9 +21,9 @@ ActiveAdmin.register User do
     column "Plano" do |user|
       user.has_health_insurance
     end
-    column "Mensalidades", class: "important" do |user|
+    column "Mensalidades" do |user|
       if user.pendencies.unsettled.any?
-        span "Devendo"
+        span "Inadimplente"
       else
         span "Ok"
       end
@@ -37,6 +37,7 @@ ActiveAdmin.register User do
   form do |f|
     f.inputs do
       f.input :email
+      f.input :nickname
       f.input :password
       f.input :password_confirmation
     end

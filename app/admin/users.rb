@@ -1,5 +1,6 @@
 ActiveAdmin.register User do
   includes :emergency_contacts, :health_insurances
+  actions :all, except: :destroy
 
   permit_params :email, :password
 

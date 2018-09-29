@@ -5,9 +5,10 @@ pt-BR:
         female: "Feminino"
         male: "Masculino"
       training_availability:
-        tuesday_afternoon: "Terça-feira (16:00 - 18:00)"
+        monday_afternoon: "Segunda-feira (13:30 - 15:30)"
         tuesday_night: "Terça-feira (23:00 - 00:30)"
         thursday_afternoon: "Quinta-feira (16:00 - 18:00)"
+        thursday_night: "Quinta-feira (23:00 - 00:30)"
         saturday_morning: "Sábado (10:00 - 12:00)"
       donation_availability:
         normal: "R$30,00"

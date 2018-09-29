@@ -40,7 +40,7 @@ class UsersController < BaseController
                                  :email, :secondary_email, :phone, :home_phone, :another_phone,
                                  :facebook_link, :whatsapp, :injuries_history, :drug_restrictions,
                                  :has_health_insurance, :chronic_diseases, :sex,
-                                 :training_availability, :donation_availability, :complement,
+                                 :donation_availability, :complement,
                                  :agree_with_terms_of_statute, :agree_with_terms_of_athlete_manual,
                                  training_availability: [],
                                  emergency_contacts_attributes: %i[

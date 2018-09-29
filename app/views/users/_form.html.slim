@@ -99,17 +99,13 @@
   h2 Dados para emergência
 
   = form.simple_fields_for :emergency_contacts do |inner_form|
-    .row
-      .col-md-8
-        = inner_form.input :full_name, maxlength: 70
-      .col-md-4
-        = inner_form.input :kinship_degree, maxlength: 20
-
-    .row
-      .col-md-4
-        = inner_form.input :home_phone, input_html: { class: "phone-mask" }
-      .col-md-4
-        = inner_form.input :phone, input_html: { class: "celphone-mask" }
+    = render partial: "users/emergency_contact_fields", locals: { f: inner_form }
+      
+    - if inner_form.object == form.object.emergency_contacts.last
+      .row
+        .col-md-12
+          .links.pull-right
+            = link_to_add_association "Adicionar Contato", form, :emergency_contacts
 
   .row
     .col-md-12

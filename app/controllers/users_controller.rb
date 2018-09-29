@@ -57,6 +57,7 @@ class UsersController < BaseController
                                    card_number
                                    validity
                                    preferably_hospital
+                                   _destroy
                                  ])
   end
 end

@@ -1,0 +1,27 @@
+- if f.object != f.object.user.emergency_contacts.first
+  hr
+  .row
+    .col-md-12
+      .links.pull-right
+        = link_to_remove_association "Remover Contato", f
+.row
+  .col-md-8
+    = f.input :full_name, maxlength: 70
+  .col-md-4
+    = f.input :kinship_degree, maxlength: 20
+
+.row
+  .col-md-4
+    = f.input :phone, input_html: { class: "celphone-mask" }
+  .col-md-4
+    = f.input :home_phone, input_html: { class: "phone-mask" }
+
+
+
+javascript:
+  $(function () {
+    $('.celphone-mask').mask('(00) 90000-0000');
+    $('.celphone-mask').attr('placeholder', '(00) 00000-0000');
+    $('.phone-mask').mask('(00) 0000-0000');
+    $('.phone-mask').attr('placeholder', '(00) 0000-0000');
+  });

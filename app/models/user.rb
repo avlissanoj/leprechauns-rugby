@@ -23,7 +23,7 @@ class User < ApplicationRecord
   has_many :health_insurances, inverse_of: :user
   accepts_nested_attributes_for :health_insurances, allow_destroy: true
   has_many :emergency_contacts, inverse_of: :user
-  accepts_nested_attributes_for :emergency_contacts, allow_destroy: true
+  accepts_nested_attributes_for :emergency_contacts, reject_if: :all_blank, allow_destroy: true
   has_many :pendencies
 
   scope :aged_registrations, -> do

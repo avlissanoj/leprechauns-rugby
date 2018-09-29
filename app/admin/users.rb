@@ -98,8 +98,7 @@ ActiveAdmin.register User do
         end
       end
 
-      if user.emergency_contacts.any?
-        emergency_contact = user.emergency_contacts.last
+      user.emergency_contacts.each do |emergency_contact|
         row "Contato de emergência" do |user|
           "#{emergency_contact.kinship_degree}: ".concat(
             "#{emergency_contact.full_name} - ").concat(

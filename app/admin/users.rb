@@ -83,8 +83,12 @@ ActiveAdmin.register User do
       row :injuries_history
       row :drug_restrictions
       row :chronic_diseases
-      row :training_availability
-      row :donation_availability
+      row "Disponibilidade para treino" do |user|
+        user.training_availability.map(&:text).join(", ")
+      end
+      row "Disponibilidade para mensalidade" do |user|
+        user.donation_availability.text
+      end
       row :has_health_insurance
 
       if user.health_insurances.any?

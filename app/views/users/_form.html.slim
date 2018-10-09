@@ -51,7 +51,7 @@
 
   .row
     .col-md-4
-      = form.input :facebook_link, input_html: { maxlength: 30 }
+      = form.input :facebook_link
     .col-md-4
       = form.input :whatsapp, input_html: { class: "celphone-mask" }
 
@@ -100,7 +100,7 @@
 
   = form.simple_fields_for :emergency_contacts do |inner_form|
     = render partial: "users/emergency_contact_fields", locals: { f: inner_form }
-      
+
     - if inner_form.object == form.object.emergency_contacts.last
       .row
         .col-md-12

@@ -15,3 +15,12 @@ pt-BR:
         half: "R$15,00"
         minimum: "R$10,00"
         plus: "+R$30,00"
+      blood_type:
+        a+: "A+"
+        a-: "A-"
+        b+: "B+"
+        b-: "B-"
+        ab+: "AB+"
+        ab-: "AB-"
+        o+: "O+"
+        o-: "O-"

@@ -58,18 +58,6 @@
   h2 Dados de atleta
 
   .row
-    .col-md-12
-      = form.input :injuries_history, as: :text
-
-  .row
-    .col-md-12
-      = form.input :drug_restrictions, as: :text
-
-  .row
-    .col-md-12
-      = form.input :chronic_diseases, as: :text
-
-  .row
     .col-md-3
       = form.input :training_availability, as: :check_boxes
     .col-md-3
@@ -96,7 +84,20 @@
       .col-md-6
         = inner_form.input :preferably_hospital, disabled: !form.object.has_health_insurance?, input_html: { class: "js-toggle-health-insurance-form", maxlength: 40 }
 
-  h2 Dados para emergência
+  h2 Dados para emergências
+  .row
+    .col-md-4
+      = form.input :injuries_history, as: :text
+
+    .col-md-4
+      = form.input :drug_restrictions, as: :text
+      
+    .col-md-4
+      = form.input :chronic_diseases, as: :text
+
+    .col-md-3
+      = form.input :blood_type
+  hr
 
   = form.simple_fields_for :emergency_contacts do |inner_form|
     = render partial: "users/emergency_contact_fields", locals: { f: inner_form }

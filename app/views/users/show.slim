@@ -8,7 +8,6 @@ h2
     = link_to "Editar", edit_user_url(@user), class: "btn btn-success pull-right"
   = @user.full_name
 
-
 dl.dl-horizontal
   - if @user.nickname.present?
     dt Apelido
@@ -68,15 +67,6 @@ dl.dl-horizontal
 
   h3 Dados de atleta
 
-  dt Histórico de lesões
-  dd= @user.injuries_history
-
-  dt Doenças crônicas
-  dd= @user.chronic_diseases
-
-  dt Restrição à medicamentos
-  dd= @user.drug_restrictions
-
   dt Treinos
   dd= @user.training_availability.map(&:text).join(',')
 
@@ -106,10 +96,23 @@ dl.dl-horizontal
 
   h3 Dados para emergência
 
+  dt Histórico de lesões
+  dd= @user.injuries_history
+
+  dt Doenças crônicas
+  dd= @user.chronic_diseases
+
+  dt Restrição à medicamentos
+  dd= @user.drug_restrictions
+
+  dt Tipo sanguíneo
+  dd= @user.blood_type || "-"
+
+  h4 Contatos de emergência
   .row
     - @user.emergency_contacts.each do |emergency_contact|
       .col-md-6
-        h4= emergency_contact.full_name
+        h5= emergency_contact.full_name
 
         dt Grau de parentesco
         dd= emergency_contact.kinship_degree
@@ -119,3 +122,6 @@ dl.dl-horizontal
         
         dt Telefone
         dd= emergency_contact.home_phone || "-"
+
+        dt Obs.
+        dd= emergency_contact.observation || "-"

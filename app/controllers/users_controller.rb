@@ -49,6 +49,7 @@ class UsersController < BaseController
                                    kinship_degree
                                    home_phone
                                    phone
+                                   observation
                                  ],
                                  health_insurances_attributes: %i[
                                    id

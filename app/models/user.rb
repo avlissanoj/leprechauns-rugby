@@ -18,6 +18,16 @@ class User < ApplicationRecord
     minimum
     plus
   ], scope: true
+  enumerize :blood_type, in: %i[
+    a+
+    a-
+    b+
+    b-
+    ab+
+    ab-
+    o+
+    o-
+  ], scope: true
   enumerize :sex, in: %i[female male], scope: true
 
   has_many :health_insurances, inverse_of: :user

@@ -80,9 +80,6 @@ ActiveAdmin.register User do
     end
 
     attributes_table title: "Dados de atleta" do
-      row :injuries_history
-      row :drug_restrictions
-      row :chronic_diseases
       row "Disponibilidade para treino" do |user|
         user.training_availability.map(&:text).join(", ")
       end
@@ -102,14 +99,22 @@ ActiveAdmin.register User do
         end
       end
 
+      row :injuries_history
+      row :drug_restrictions
+      row :chronic_diseases
+      row :blood_type
       user.emergency_contacts.each do |emergency_contact|
         row "Contato de emergência" do |user|
           "#{emergency_contact.kinship_degree}: ".concat(
-            "#{emergency_contact.full_name} - ").concat(
-            "#{ [
-              emergency_contact.phone,
-              emergency_contact.home_phone
-            ].compact.join(" / ") }")
+            "#{emergency_contact.full_name}").concat(
+              emergency_contact.observation.present? ? 
+                " (#{emergency_contact.observation}) - " : " - "
+            ).concat(
+              "#{ [
+                emergency_contact.phone,
+                emergency_contact.home_phone
+              ].compact.join(" / ") }"
+            )
         end
       end
     end

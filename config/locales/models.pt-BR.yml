@@ -49,6 +49,7 @@ pt-BR:
         chronic_diseases: 'Doenças crônicas'
         training_availability: 'Disponibilidade para treinar'
         donation_availability: 'Disponibilidade para mensalidade'
+        blood_type: 'Tipo sanguíneo'
         has_health_insurance: 'Possui plano de saúde'
         created_at: 'Criado em'
         updated_at: 'Atualizado em'
@@ -63,6 +64,7 @@ pt-BR:
         kinship_degree: 'Grau de parentesco'
         home_phone: 'Telefone'
         phone: 'Celular'
+        observation: 'Observação'
       health_insurance:
         company: 'Empresa'
         plan: 'Plano'

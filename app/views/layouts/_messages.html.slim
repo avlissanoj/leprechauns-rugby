@@ -1,0 +1,5 @@
+- if flash.any?
+  div class="alert alert-info"
+    a href="#" data-dismiss="alert" class="close" ×
+    - flash.each do |key, value|
+      p= value

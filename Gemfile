@@ -27,6 +27,7 @@ gem 'sendgrid-ruby'
 gem 'smtpapi'
 gem 'dotenv-rails', groups: [:development, :test]
 gem 'cocoon'
+gem 'airbrake', '~> 5.4'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]

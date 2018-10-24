@@ -340,7 +340,7 @@ DEPENDENCIES
   aasm (~> 4.11)
   activeadmin (~> 1.2)
   activeadmin_addons
-  airbrake (~> 5.4)
+  airbrake
   bootstrap-sass (~> 3.3.7)
   byebug
   capybara (= 2.14.0)

@@ -26,9 +26,9 @@
           = image_tag "logo_lepre.png", alt: "Clube", class: "img-responsive"
 
         p.home-links
-          = link_to "Estatuto", "/estatuto.pdf", download: "estatuto.pdf", target: "_blank"
+          = link_to 'Estatuto', ENV.fetch("ESTATUTO_LINK", ""), target: '_blank'
         p.home-links
-          = link_to "Manual do Atleta", "/manual_do_atleta.pdf", download: "manual_do_atleta.pdf", target: "_blank"
+          = link_to 'Manual do Atleta', ENV.fetch("MANUAL_DO_ATLETA_LINK", ""), target: '_blank'
 
   .col-md-3
     .panel.panel-default

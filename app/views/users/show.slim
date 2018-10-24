@@ -15,7 +15,7 @@ dl.dl-horizontal
 
   dt Sexo
   dd= @user.sex.text
-  
+
   dt RG
   dd= @user.rg
 
@@ -68,7 +68,7 @@ dl.dl-horizontal
   h3 Dados de atleta
 
   dt Treinos
-  dd= @user.training_availability.map(&:text).join(',')
+  dd= @user.training_availability.map(&:text).join(', ')
 
   dt Mensalidade
   dd= @user.donation_availability.text
@@ -79,7 +79,7 @@ dl.dl-horizontal
     .row
       - @user.health_insurances.each do |health_insurance|
         .col-md-6
-          h4= health_insurance.company
+          h5= health_insurance.company
 
           dt Plano
           dd= health_insurance.plan
@@ -106,7 +106,7 @@ dl.dl-horizontal
   dd= @user.drug_restrictions
 
   dt Tipo sanguíneo
-  dd= @user.blood_type || "-"
+  dd= @user.blood_type
 
   h4 Contatos de emergência
   .row
@@ -119,9 +119,11 @@ dl.dl-horizontal
 
         dt Celular
         dd= emergency_contact.phone
-        
-        dt Telefone
-        dd= emergency_contact.home_phone || "-"
 
-        dt Obs.
-        dd= emergency_contact.observation || "-"
+        - if emergency_contact.home_phone.present?
+          dt Telefone
+          dd= emergency_contact.home_phone
+
+        - if emergency_contact.observation.present?
+          dt Obs.
+          dd= emergency_contact.observation

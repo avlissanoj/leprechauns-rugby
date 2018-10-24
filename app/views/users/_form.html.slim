@@ -97,7 +97,8 @@
 
     .col-md-3
       = form.input :blood_type
-  hr
+
+  h3 Contatos
 
   = form.simple_fields_for :emergency_contacts do |inner_form|
     = render partial: "users/emergency_contact_fields", locals: { f: inner_form }
@@ -113,8 +114,9 @@
       = form.input :agree_with_terms_of_statute, label: "Você está de acordo com os termos presentes no #{link_to 'Estatuto', ENV.fetch("ESTATUTO_LINK", ""), target: '_blank'}".html_safe
       = form.input :agree_with_terms_of_athlete_manual, label: "Você está de acordo com os termos presentes no #{link_to 'Manual do Atleta', ENV.fetch("MANUAL_DO_ATLETA_LINK", ""), target: '_blank'}".html_safe
 
-  .actions.pull-right.clearfix
+  .actions.pull-right
     = form.submit "Salvar", class: "btn btn-success"
+  .clearfix
 
 javascript:
   $(function () {

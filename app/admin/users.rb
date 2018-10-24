@@ -107,13 +107,12 @@ ActiveAdmin.register User do
         row "Contato de emergência" do |user|
           "#{emergency_contact.kinship_degree}: ".concat(
             "#{emergency_contact.full_name}").concat(
-              emergency_contact.observation.present? ? 
-                " (#{emergency_contact.observation}) - " : " - "
+              emergency_contact.observation.present? ? " (#{emergency_contact.observation}) - " : " - "
             ).concat(
-              "#{ [
+              [
                 emergency_contact.phone,
                 emergency_contact.home_phone
-              ].compact.join(" / ") }"
+              ].compact.join(" / ")
             )
         end
       end

@@ -55,7 +55,7 @@ ActiveAdmin.register User do
       row :full_name
       row :nickname
       row "Sexo" do |user|
-        I18n.t("enumerize.user.sex.#{user.sex}")
+        I18n.t("enumerize.user.sex.#{user.sex}") if user.sex.present?
       end
       row :rg
       row :cpf
@@ -81,10 +81,10 @@ ActiveAdmin.register User do
 
     attributes_table title: "Dados de atleta" do
       row "Disponibilidade para treino" do |user|
-        user.training_availability.map(&:text).join(", ")
+        user.training_availability&.map(&:text)&.join(", ")
       end
       row "Disponibilidade para mensalidade" do |user|
-        user.donation_availability.text
+        user.donation_availability&.text
       end
       row :has_health_insurance
 

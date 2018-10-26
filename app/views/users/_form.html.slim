@@ -70,9 +70,9 @@
   = form.simple_fields_for :health_insurances do |inner_form|
     .row
       .col-md-6
-        = inner_form.input :company, disabled: !form.object.has_health_insurance?, input_html: { class: "js-toggle-health-insurance-form", maxlength: 30 }
+        = inner_form.input :company, disabled: !form.object.has_health_insurance?, input_html: { class: "js-toggle-health-insurance-form", maxlength: 50 }
       .col-md-6
-        = inner_form.input :plan, disabled: !form.object.has_health_insurance?, input_html: { class: "js-toggle-health-insurance-form", maxlength: 20 }
+        = inner_form.input :plan, disabled: !form.object.has_health_insurance?, input_html: { class: "js-toggle-health-insurance-form", maxlength: 40 }
 
     .row
       .col-md-4
@@ -82,7 +82,7 @@
 
     .row
       .col-md-6
-        = inner_form.input :preferably_hospital, disabled: !form.object.has_health_insurance?, input_html: { class: "js-toggle-health-insurance-form", maxlength: 40 }
+        = inner_form.input :preferably_hospital, disabled: !form.object.has_health_insurance?, input_html: { class: "js-toggle-health-insurance-form", maxlength: 50 }
 
   h2 Dados para emergências
   .row

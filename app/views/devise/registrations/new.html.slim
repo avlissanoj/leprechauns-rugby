@@ -11,6 +11,6 @@ h2 Cadastrar
         = f.input :password_confirmation, required: true
 
       .form-actions
-        = f.button :submit, "Cadastrar"
+        = f.button :submit, "Cadastrar", data: { disable_with: "Salvando..." }
 
 = render "devise/shared/links"

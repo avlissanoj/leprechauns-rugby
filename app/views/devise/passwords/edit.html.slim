@@ -13,6 +13,6 @@ h2 Mudar sua senha
         = f.input :password_confirmation, label: "Confirme sua nova senha", required: true
 
       .form-actions
-        = f.button :submit, "Mudar sua senha"
+        = f.button :submit, "Mudar sua senha", data: { disable_with: "Salvando..." }
 
 = render "devise/shared/links"

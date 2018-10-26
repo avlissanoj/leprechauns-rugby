@@ -13,6 +13,6 @@ h2 Entrar
         = f.input :remember_me, as: :boolean if devise_mapping.rememberable?
 
       .form-actions
-        = f.button :submit, "Entrar", class: "btn btn-default"
+        = f.button :submit, "Entrar", class: "btn btn-default", data: { disable_with: "Processando..." }
 
 = render "devise/shared/links"

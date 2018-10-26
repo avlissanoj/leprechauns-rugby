@@ -10,6 +10,6 @@ h2 Reenviar instruções para confirmação
         = f.input :email, required: true, autofocus: true
 
       .form-actions
-        = f.button :submit, "Reenviar instruções para confirmação"
+        = f.button :submit, "Reenviar instruções para confirmação", data: { disable_with: "Processando..." }
 
 = render "devise/shared/links"

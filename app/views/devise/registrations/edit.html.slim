@@ -16,7 +16,7 @@ h2 Editar Credenciais de Acesso
         = f.input :current_password, label: "Senha atual", hint: "Precisamos da sua senha para confirmar suas alterações", required: true
 
       .form-actions
-        = f.button :submit, "Atualizar"
+        = f.button :submit, "Atualizar", data: { disable_with: "Salvando..." }
         = link_to "Voltar", :back, class: "btn btn-link"
 
 /h3 Cancel my account

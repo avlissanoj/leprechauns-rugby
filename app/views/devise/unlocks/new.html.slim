@@ -10,6 +10,6 @@ h2 Reenviar instruções para desbloqueio
         = f.input :email, required: true, autofocus: true
 
       .form-actions
-        = f.button :submit, "Reenviar instruções para desbloqueio"
+        = f.button :submit, "Reenviar instruções para desbloqueio", data: { disable_with: "Processando..." }
 
 = render "devise/shared/links"

@@ -9,6 +9,6 @@ h2 Esqueceu sua senha?
         = f.input :email, required: true, autofocus: true
 
       .form-actions
-        = f.button :submit, "Me envie instruções para resetar a senha"
+        = f.button :submit, "Me envie instruções para resetar a senha", data: { disable_with: "Processando..." }
 
 = render "devise/shared/links"

@@ -12,9 +12,9 @@ nav.navbar.navbar-inverse
         - if user_signed_in?
           li= link_to "Menu principal", home_pages_path
           - if current_user.rg.blank?
-            = link_to "Preencher cadastro", edit_user_path(current_user), class: "btn btn-success navbar-btn mr-15"
+            button.btn.btn-success.navbar-btn.ml-15.mr-15= link_to "Preencher cadastro", edit_user_path(current_user)
           - elsif current_user.need_review?
-            = link_to "Atualizar cadastro", edit_user_path(current_user), class: "btn btn-success navbar-btn mr-15"
+            button.btn.btn-success.navbar-btn.ml-15.mr-15= link_to "Atualizar cadastro", edit_user_path(current_user)
           - else
             li= link_to "Meus dados", current_user
           li= link_to "Configurações", edit_user_registration_path

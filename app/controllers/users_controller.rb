@@ -14,7 +14,7 @@ class UsersController < BaseController
 
     respond_to do |format|
       if @user.save
-        @user.review! if @user.need_review?
+        @user.update! if @user.need_review? || @user.unfilled?
         format.html { redirect_to @user }
       else
         build @user

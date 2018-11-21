@@ -39,7 +39,7 @@ class User < ApplicationRecord
   scope :aged_registrations, -> do
     where(
       "last_update_at > last_age_registration_email_send_at AND last_update_at < ?",
-      ENV.fetch("MONTHS_TO_AGE_REGISTRATION").months.ago
+      ENV.fetch("MONTHS_TO_AGE_REGISTRATION").to_i.months.ago
     )
   end
 

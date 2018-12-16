@@ -1,2 +1,2 @@
-Class Payment
+class Payment
 end

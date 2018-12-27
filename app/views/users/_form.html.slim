@@ -63,7 +63,7 @@
     .col-md-3
       = form.input :donation_availability, include_blank: false
     .col-md-3
-      = form.input :supporter, label: "Apoiador <a data-toggle='tooltip' data-placement='top' title='Não atleta que pretende contribuir com o time'>?</a>".html_safe
+      = form.input :supporter, as: :boolean, label: "Apoiador <a data-toggle='tooltip' data-placement='top' title='Não atleta que pretende contribuir com o time'>?</a>".html_safe
       
   h2 Dados de plano de saúde
 

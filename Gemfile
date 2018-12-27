@@ -28,6 +28,7 @@ gem 'smtpapi'
 gem 'dotenv-rails', groups: [:development, :test]
 gem 'cocoon'
 gem 'airbrake'
+gem 'pundit'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]

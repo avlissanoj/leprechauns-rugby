@@ -2,13 +2,17 @@ class UsersController < BaseController
   before_action :set_user, only: %i[show edit update]
   before_action :authenticate_user!
 
-  def show; end
+  def show
+    authorize @user
+  end
 
   def edit
+    authorize @user
     build @user
   end
 
   def update
+    authorize @user
     @user.assign_attributes(user_params)
     @user.last_update_at = Time.now
 

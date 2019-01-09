@@ -62,7 +62,9 @@
       = form.input :training_availability, as: :check_boxes
     .col-md-3
       = form.input :donation_availability, include_blank: false
-
+    .col-md-3
+      = form.input :supporter, as: :boolean, label: "Apoiador <a data-toggle='tooltip' data-placement='top' title='Não atleta que pretende contribuir com o time'>?</a>".html_safe
+      
   h2 Dados de plano de saúde
 
   = form.input :has_health_insurance, input_html: { id: "js-has-health-insurance" }
@@ -138,4 +140,6 @@ javascript:
     $(document).on("change", "#js-has-health-insurance", function() {
       $(".js-toggle-health-insurance-form").prop("disabled", !this.checked);
     });
+
+    $('[data-toggle="tooltip"]').tooltip()
   });

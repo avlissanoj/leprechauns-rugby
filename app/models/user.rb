@@ -6,9 +6,7 @@ class User < ApplicationRecord
 
   serialize :training_availability, Array
   enumerize :training_availability, in: %i[
-    monday_afternoon
-    tuesday_night
-    thursday_afternoon
+    tuesday_afternoon
     thursday_night
     saturday_morning
   ], multiple: true

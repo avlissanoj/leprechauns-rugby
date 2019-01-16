@@ -64,7 +64,7 @@
       = form.input :donation_availability, include_blank: false
     .col-md-3
       = form.input :supporter, as: :boolean, label: "Apoiador <a data-toggle='tooltip' data-placement='top' title='Não atleta que pretende contribuir com o time'>?</a>".html_safe
-      
+
   h2 Dados de plano de saúde
 
   = form.input :has_health_insurance, input_html: { id: "js-has-health-insurance" }
@@ -80,7 +80,7 @@
       .col-md-4
         = inner_form.input :card_number, disabled: !form.object.has_health_insurance?, input_html: { class: "js-toggle-health-insurance-form", maxlength: 30 }
       .col-md-4
-        = inner_form.input :validity, disabled: !form.object.has_health_insurance?, input_html: { class: "js-toggle-health-insurance-form" }, start_year: Date.today.year, end_year: Date.today.year + 20
+        = inner_form.input :validity, include_blank: true, disabled: !form.object.has_health_insurance?, input_html: { class: "js-toggle-health-insurance-form" }, start_year: Date.today.year, end_year: Date.today.year + 20
 
     .row
       .col-md-6

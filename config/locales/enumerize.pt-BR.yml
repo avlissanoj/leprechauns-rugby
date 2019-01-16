@@ -9,6 +9,7 @@ pt-BR:
         thursday_night: "Quinta-feira (23:00 - 00:30)"
         saturday_morning: "Sábado (10:00 - 12:00)"
       donation_availability:
+        zero: "R$0,00"
         normal: "R$30,00"
         half: "R$15,00"
         minimum: "R$10,00"

@@ -14,6 +14,7 @@ class User < ApplicationRecord
     normal
     half
     minimum
+    zero
     plus
   ], scope: true
   enumerize :blood_type, in: %i[

@@ -87,8 +87,9 @@ dl.dl-horizontal
           dt Número do cartão
           dd= health_insurance.card_number
 
-          dt Validade do cartão
-          dd= l health_insurance.validity
+          - if health_insurance.validity.present?
+            dt Validade do cartão
+            dd= l health_insurance.validity
 
           - if health_insurance.preferably_hospital.present?
             dt Hospital

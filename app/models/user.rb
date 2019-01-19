@@ -58,7 +58,6 @@ class User < ApplicationRecord
                         :injuries_history,
                         :agree_with_terms_of_statute,
                         :agree_with_terms_of_athlete_manual,
-                        :training_availability,
                         :donation_availability,
                         :emergency_contacts, unless: :unfilled?
 

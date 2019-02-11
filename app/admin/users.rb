@@ -46,8 +46,9 @@ ActiveAdmin.register User do
 
   filter :full_name
   filter :nickname
-  filter :sex
-  filter :has_health_insurance
+  filter :sex, as: :check_boxes
+  filter :has_health_insurance, as: :check_boxes
+  filter :supporter, as: :check_boxes, label: "Apoiador"
   filter :aasm_state, as: :check_boxes, collection: User.aasm.states_for_select, label: "Cadastro"
 
   show title: :nickname do
@@ -80,6 +81,7 @@ ActiveAdmin.register User do
     end
 
     attributes_table title: "Dados de atleta" do
+      row :supporter
       row "Disponibilidade para treino" do |user|
         user.training_availability&.map(&:text)&.join(", ")
       end

@@ -58,6 +58,7 @@ pt-BR:
         confirmed_at: 'Confirmado em'
         sign_in_count: 'Quantas vezes entrou'
         aasm_state: 'Estado do cadastro'
+        aasm_state/created: 'Não confirmado'
         aasm_state/unfilled: 'Não preenchido'
         aasm_state/need_review: 'Desatualizado'
         aasm_state/updated: 'Atualizado'

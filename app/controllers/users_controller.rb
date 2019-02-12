@@ -9,6 +9,7 @@ class UsersController < BaseController
   def edit
     authorize @user
     build @user
+    @user.setup if @user.created?
   end
 
   def update
@@ -18,11 +19,12 @@ class UsersController < BaseController
 
     respond_to do |format|
       if @user.save
-        @user.update! if @user.need_review? || @user.unfilled?
+        @user.fill!
         format.html { redirect_to @user }
       else
         build @user
         format.html { render :edit }
+        flash[:warning] = "Preencha todos os campos obrigatórios"
       end
     end
   end

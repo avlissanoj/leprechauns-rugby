@@ -1,7 +1,7 @@
 nav.navbar.navbar-inverse
   .container
     .navbar-header
-      button.navbar-toggle.collapsed aria-controls="navbar" aria-expanded="false" data-target="#navbar" data-toggle="collapse" type="button" 
+      button.navbar-toggle.collapsed aria-controls="navbar" aria-expanded="false" data-target="#navbar" data-toggle="collapse" type="button"
         span.sr-only Toggle navigation
         span.icon-bar
         span.icon-bar
@@ -11,7 +11,7 @@ nav.navbar.navbar-inverse
       ul.nav.navbar-nav.navbar-right
         - if user_signed_in?
           li= link_to "Menu principal", home_pages_path
-          - if current_user.rg.blank?
+          - if current_user.unfilled?
             button.btn.btn-success.navbar-btn.ml-15.mr-15= link_to "Preencher cadastro", edit_user_path(current_user)
           - elsif current_user.need_review?
             button.btn.btn-success.navbar-btn.ml-15.mr-15= link_to "Atualizar cadastro", edit_user_path(current_user)

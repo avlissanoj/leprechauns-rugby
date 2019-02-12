@@ -59,20 +59,23 @@ class User < ApplicationRecord
                         :agree_with_terms_of_statute,
                         :agree_with_terms_of_athlete_manual,
                         :donation_availability,
-                        :emergency_contacts, unless: :unfilled?
+                        :emergency_contacts, unless: :created?
+  validates_inclusion_of :has_health_insurance, in: [true, false], unless: :created?
+  validates_uniqueness_of :nickname, unless: :created?
 
-  validates_inclusion_of :has_health_insurance, in: [true, false], unless: :unfilled?
-
-  validates_presence_of :health_insurances, if: :has_health_insurance?, unless: :unfilled?
-
-  validates_uniqueness_of :nickname, unless: :unfilled?
+  validates_presence_of :health_insurances, if: :has_health_insurance?, unless: :created?
 
   aasm do
-    state :unfilled, initial: true
+    state :created, initial: true
+    state :unfilled
     state :need_review
     state :updated
 
-    event :update do
+    event :setup do
+      transitions from: :created, to: :unfilled
+    end
+
+    event :fill do
       transitions from: [:unfilled, :need_review], to: :updated
     end
 

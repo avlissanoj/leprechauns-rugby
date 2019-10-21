@@ -61,3 +61,11 @@ end
 # integration with the Logger class from stdlib.
 # https://github.com/airbrake/airbrake#logger
 # Rails.logger = Airbrake::AirbrakeLogger.new(Rails.logger)
+
+Airbrake.add_filter do |notice|
+  # The library supports nested exceptions, so one notice can carry several
+  # exceptions.
+  if notice[:errors].any? { |error| error[:type] == 'SignalException' }
+    notice.ignore!
+  end
+end

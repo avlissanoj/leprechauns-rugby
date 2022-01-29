@@ -70,7 +70,7 @@ ActiveRecord::Schema.define(version: 20181227002643) do
 
   create_table "pendencies", force: :cascade do |t|
     t.bigint "user_id"
-    t.boolean "settled"
+    t.boolean "settled", default: false
     t.date "date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

@@ -11,6 +11,7 @@
 /log/*
 /tmp/*
 /docker/*
+/.docker/*
 !/log/.keep
 !/tmp/.keep
 .DS_STORE
